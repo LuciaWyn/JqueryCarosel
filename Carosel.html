@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title></title>
+        <style>
+            .red{
+                background-color: red;
+                width: 100px;
+                height: 100px;
+                
+            }
+            .blue{
+                background-color: blue;
+                width: 100px;
+                height: 100px;
+                margin-left: 110px;
+            }
+            .purple{
+                background-color: purple;
+                width: 100px;
+                height: 100px;
+                margin-left: 330px;
+            }
+            .green{
+                background-color: green;
+                width: 100px;
+                height: 100px;
+                margin-left: 220px;
+            }
+            .c {
+               width:500px;
+               position: absolute;
+               height: 100px;
+               display: inline-block;
+            }
+            .c div{
+                position: absolute;
+                
+            }
+            #front{
+                width:  0;
+                height: 0;
+                border-top:  50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-left:  50px solid blue;
+               margin-left: 525px;
+               top: 9px;
+            }
+            button:hover{
+                
+                opacity: 0.8;
+            }
+            #back{
+                width:  0;
+                height: 0;
+                border-top:  50px solid transparent;
+                border-bottom: 50px solid transparent;
+                border-right:  50px solid blue;
+                margin-right: 10px;
+            }
+            button{
+                position: absolute;
+                background-color: white;
+                border:  none;
+                outline: none;
+            }
+            #wrap2{
+                overflow-y: hidden;
+                width: 440px;
+                overflow-x: hidden;
+                height: 100px;
+                margin-left: 80px;
+                position: relative;
+            }
+        </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+        <script>
+            var g = 1;
+            var max = 3;
+
+            function fr()
+            {
+                if (g != max)
+                {
+                    h = g + 1;
+                    t = 104;
+                }
+                else
+                {
+                    h = 1;
+                    t = 0;
+
+                }
+
+                $("#c" + h).css({ "margin-left": "440px" });
+
+
+                $("#c" + g).animate({ "margin-left": "-440px" }, { duration: 1500, queue: false });
+                $("#c" + h).animate({ "margin-left": "0px" }, { duration: 1500, queue: false });
+                g = h;
+            }
+            function ba()
+            {
+
+                if (g != 1)
+                {
+                    h = g - 1;
+                }
+                else
+                {
+                    h = 3;
+                }
+                $("#c" + h).css({ "margin-left": "-440px" });
+
+
+                $("#c" + g).animate({ "margin-left": "440px" }, { duration: 1500, queue: false });
+                $("#c" + h).animate({ "margin-left": "0px" }, { duration: 1500, queue: false });
+                g = h;
+
+            }
+
+            $(document).ready(function ()
+            {
+                $("#c2").css({ "margin-left": "460px" });
+                $("#c3").css({ "margin-left": "970px" });
+            });
+            $('div#front').click(fr);
+        </script>
+       
+    </head>
+    <body>
+        <div id="wrap">
+            <button id="back" class="m" onclick="ba()"></button>
+            <div id="wrap2">
+                <div class="c" id="c1">
+            
+                    <div class="red"><p>1 1</p></div>
+                    <div class="blue"><p>1 1</p></div>
+                    <div class="green"><p>1 1</p></div>
+                    <div class="purple"><p>1 1</p></div>
+                </div>
+                <div class="c" id="c2">
+            
+                    <div class="red"><p>2 2</p></div>
+                    <div class="blue"><p>2 1</p></div>
+                    <div class="green"><p>2 1</p></div>
+                    <div class="purple"><p>2 1</p></div>
+                </div>
+                <div class="c" id="c3">
+            
+                    <div class="red">2</div>
+                    <div class="blue">2</div>
+                    <div class="green">1</div>
+                    <div class="purple">1</div>
+                </div>
+            </div>
+            <button id="front" onclick="fr()" class="m"></button>
+          </div>
+        
+        
+    </body>
+</html>
